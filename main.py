@@ -1,6 +1,6 @@
 import pygame
 
-from modul_tank import tank
+from modul_tank import Tank_1
 
 pygame.init()
 ###########################################################
@@ -10,32 +10,31 @@ RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 GREY = (128, 128, 128)
-
-size_of_window = (400,400)
-window = pygame.display.set_mode(size_of_window)
 ####################################################################
+WIDTH = 600
+HEIGHT = 600
+
+window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption('Tank')  # название окна
-
-screen = pygame.Surface((size_of_window))  # главное окно
-
+work_place = pygame.Surface((WIDTH, HEIGHT))
+###################################################################
 clock_1 = pygame.time.Clock()
 FPS = 60
 
+Plaeyr_1 = Tank_1(200, 200, 1, 'pictures/up.png')
 
-
-run = True
-while run:
+game_run = True
+while game_run:
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            run = False
+            game_run = False
             quit()
 
-
-    screen.fill(GREY)
-
+    work_place.fill(GREY)
+    Plaeyr_1.render(work_place)
 
     ########################
     clock_1.tick(FPS)
     #########################
-    window.blit(screen, (0, 0))  # прилепляем наш экран на окно
-    pygame.display.flip()
+    window.blit(work_place, (0, 0))  # прилепляем наш экран на окно
+    pygame.display.update()
