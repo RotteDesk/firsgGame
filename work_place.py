@@ -1,6 +1,7 @@
 import pygame
 
-def initPyGame():
+
+def Display():
     w = 600
     h = 600
 

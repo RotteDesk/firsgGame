@@ -1,5 +1,5 @@
 import pygame
-from work_place import initPyGame
+from work_place import Display
 from modul_tank import Tank_1
 
 pygame.init()
@@ -10,9 +10,9 @@ RED = (255, 0, 0)
 GREEN = (0, 255, 0)
 BLUE = (0, 0, 255)
 GREY = (128, 128, 128)
-####################################################################
-main_window, work_place = initPyGame()
-###################################################################
+#Display
+main_window, work_place = Display()
+#FPS
 clock_1 = pygame.time.Clock()
 FPS = 60
 Plaeyr_1 = Tank_1(200, 200, 'pictures/up.png')
@@ -27,7 +27,7 @@ while game_run:
 
     work_place.fill(GREY)
 
-    Plaeyr_1.render(1, work_place)
+    Plaeyr_1.render(5, work_place)
 
     ########################
     clock_1.tick(FPS)
